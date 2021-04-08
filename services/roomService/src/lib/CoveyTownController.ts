@@ -1,10 +1,12 @@
 import { customAlphabet, nanoid } from 'nanoid';
-import { UserLocation } from '../CoveyTypes';
+import { CoveyTown, UserLocation } from '../CoveyTypes';
 import CoveyTownListener from '../types/CoveyTownListener';
 import Player from '../types/Player';
 import PlayerSession from '../types/PlayerSession';
 import TwilioVideo from './TwilioVideo';
 import IVideoClient from './IVideoClient';
+import MongoAtlasClient from '../services/MongoAtlasClient';
+import IDBClient from '../services/IDBClient';
 
 const friendlyNanoID = customAlphabet('1234567890ABCDEF', 8);
 
@@ -16,6 +18,7 @@ export default class CoveyTownController {
   get capacity(): number {
     return this._capacity;
   }
+
   set isPubliclyListed(value: boolean) {
     this._isPubliclyListed = value;
   }
@@ -70,12 +73,15 @@ export default class CoveyTownController {
 
   private _capacity: number;
 
+  private _dbClient: Promise<IDBClient>;
+
   constructor(friendlyName: string, isPubliclyListed: boolean) {
     this._coveyTownID = (process.env.DEMO_TOWN_ID === friendlyName ? friendlyName : friendlyNanoID());
     this._capacity = 50;
     this._townUpdatePassword = nanoid(24);
     this._isPubliclyListed = isPubliclyListed;
     this._friendlyName = friendlyName;
+    this._dbClient = MongoAtlasClient.setup();
   }
 
   /**
@@ -96,6 +102,12 @@ export default class CoveyTownController {
     // Notify other players that this player has joined
     this._listeners.forEach((listener) => listener.onPlayerJoined(newPlayer));
 
+    try {
+      const dbClient = await this._dbClient;
+      dbClient.saveTown(this.toCoveyTown());
+    } catch (err) {
+      throw new Error(`Error saving town in addPlayer(): ${err.toString()}`);
+    }
     return theSession;
   }
 
@@ -152,5 +164,28 @@ export default class CoveyTownController {
 
   disconnectAllPlayers(): void {
     this._listeners.forEach((listener) => listener.onTownDestroyed());
+  }
+
+  toCoveyTown(): CoveyTown {
+    const {
+      coveyTownID,
+      friendlyName,
+      occupancy,
+      capacity,
+      players,
+      townUpdatePassword,
+      isPubliclyListed,
+    } = this;
+
+    const coveyTown: CoveyTown = {
+      coveyTownID,
+      friendlyName,
+      occupancy,
+      capacity,
+      players: players.map(p => p.id),
+      townUpdatePassword,
+      isPubliclyListed,
+    };
+    return coveyTown;
   }
 }
