@@ -148,19 +148,23 @@ export default function SimpleCard(): JSX.Element {
           <Stack spacing={4}>
             <FormControl id="username">
               <FormLabel>Username</FormLabel>
-              <Input value={userName} onChange={(event) => setUserName(event.target.value)} />
+              <Input value={userName} onChange={(event) => setUserName(event.target.value)} 
+              onKeyPress={(e) => e.key === 'Enter' && createAccountHandler()}/>
             </FormControl>
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
-              <Input type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
+              <Input type="email" value={email} onChange={(event) => setEmail(event.target.value)} 
+              onKeyPress={(e) => e.key === 'Enter' && createAccountHandler()}/>
             </FormControl>
             <FormControl id="password">
               <FormLabel>Password</FormLabel>
-              <Input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+              <Input type="password" value={password} onChange={(event) => setPassword(event.target.value)}
+              onKeyPress={(e) => e.key === 'Enter' && createAccountHandler()} />
             </FormControl>
             <FormControl id="confirmPassword">
               <FormLabel>Confirm Password</FormLabel>
-              <Input type="password" value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)} />
+              <Input type="password" value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)}
+              onKeyPress={(e) => e.key === 'Enter' && createAccountHandler()} />
             </FormControl>
             <Stack spacing={10}>
 
