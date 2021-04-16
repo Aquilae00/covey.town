@@ -16,8 +16,13 @@
 
 ### Log out
 - Once a user has logged in, they could log out of their current account.
-
 ![Logout](docs/user-story-1/logout.png)
+
+## Profile
+-- Once a user is logged in, they could view or edit their profile, then save it to the database. These data will be persisted.
+![Profile](docs/user-story-1/profile.png)
+
+
 
 ## User Story 2:
 
