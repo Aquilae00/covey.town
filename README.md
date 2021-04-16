@@ -12,7 +12,7 @@ The frontend implements video chat using the [Twilio Programmable Video](https:/
 
 A backend service (in the `services/roomService` directory) implements the application logic: tracking which "towns" are available to be joined, and the state of each of those towns.
 
-### Public Git Repository
+## Public Git Repository
 Follow this link to find our public Git repository: https://github.com/Aquilae00/covey.town
 
 ## Running this app locally
