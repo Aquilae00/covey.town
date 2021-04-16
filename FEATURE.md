@@ -11,6 +11,7 @@
 
 ### Log in
 - Once a user has created an account, they can reuse their email address and pasword to log in.
+- NOTE: Login persistence is not a feature of our project, and therefore if you reload a page, you will be forced to relogin again.
 
 ![login](docs/user-story-1/login.png)
 
