@@ -31,7 +31,7 @@ To create an account and configure your local environment:
 | `TWILIO_API_KEY_SID`     | The SID of the new API key you created.                      |
 | `TWILIO_API_KEY_SECRET`  | The secret for the API key you created.                      |
 | `TWILIO_API_AUTH_TOKEN`  | Visible on your twilio account dashboard.                    |
-| `MONGODB_ATLAS_PASSWORD` | MongoDB Atlas password for the sever, use 'i1TwbsHBhqP8aUJW' |
+| `MONGODB_ATLAS_PASSWORD` | MongoDB Atlas password for the server
 
 ### Starting the backend
 
@@ -44,10 +44,10 @@ Create a `.env` file in the `frontend` directory, with the following values to c
 
 | Config                                 | Value                                                                    |
 | -------------------------------------- | ------------------------------------------------------------------------ |
-| `REACT_APP_TOWNS_SERVICE_URL`          | http://localhost:8081                                                    |
-| `REACT_APP_REALM_ID`                   | coveytown1-msmxv                                                         | 
-| `REACT_APP_FRIEND_REQUEST_SERVICE_URL` | http://localhost:8082                                                    |
-| `REACT_APP_GOOGLE_OAUTH_CLIENT_ID`     | 153346468307-10ambjm5hhobtlscrc7sukgmdvlkl46q.apps.googleusercontent.com |
+| `REACT_APP_TOWNS_SERVICE_URL`          | The town service url                                                   |
+| `REACT_APP_REALM_ID`                   | MongoDB Realm ID                                                      | 
+| `REACT_APP_FRIEND_REQUEST_SERVICE_URL` | Friends service url                                                    |
+| `REACT_APP_GOOGLE_OAUTH_CLIENT_ID`     | Google OAuth Client ID |
 
 If you want to deploy the rooms/towns service to another location, put that location as the value for `REACT_APP_TOWNS_SERVICE_URL` instead.
 
