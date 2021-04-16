@@ -13,6 +13,10 @@ We added new types such as CoveyUser and CoveyUserProfile as abstraction for ent
 - AuthGuard components stores a user's authentication info and serves as a wall that prevents unauthenticated users to access covey town app.
 - Current user state is configured as react state. 
 
+## Profile
+- Saving profile works by going to the profile page and to view and edit your profile data.
+- Saving the button will directly interface with our database client and save he your covey user to our database.
+
 ![Login Sequence](docs/user-story-1/login-seq.png)
 
 ## User Story 2:
