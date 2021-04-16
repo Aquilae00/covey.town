@@ -6,9 +6,9 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ dev]
+    branches: [ master]
   pull_request:
-    branches: [ dev]
+    branches: [ master]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -31,10 +31,10 @@ jobs:
           TWILIO_API_KEY_SECRET: ${{ secrets.TWILIO_API_KEY_SECRET }}
           TWILIO_API_KEY_SID: ${{ secrets.TWILIO_API_KEY_SID }}
           MONGODB_ATLAS_PASSWORD: ${{ secrets.MONGODB_ATLAS_PASSWORD }}
-        run: cd services/roomService; npm install
+        run: cd services/roomService; npm install && npm run lint && npm test
 
       - name: Build and test frontend components
-        run: cd frontend; npm install
+        run: cd frontend; npm install && npm run lint && npm test
   deploy:
     if: github.ref == 'refs/heads/master'
     needs: build-and-test
