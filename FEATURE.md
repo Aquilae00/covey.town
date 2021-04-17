@@ -26,6 +26,14 @@
 
 
 ## User Story 2:
+### Login by Google:
+- Support for third party sign in with Google accounts. User is able to sync all the information from google account into Covey.Town account including name, email address, and profile picture. 
+
+###Google login button in Login Page
+There are two buttons that are set in log in page, a normal signing in button and a google signing in button. After clicking with google signing in, additional page will pop out and asking for google login information. With the completion of signing in with google, it will redirect back to sign up page with google username shown as covey username on the top of the page - "Welcome to Covey.Town, (Username) and corresponding profile picture. What's more, logged in covey town user with google have all the sync information. 
+
+### Authentication: 
+- Support for google authentication. Upon login, user needs to enter login information with google user name and password. User will no longer need to enter additional information for logging into covey town account.
 
 ## User Story 3:
 ### Friend List:
