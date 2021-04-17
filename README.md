@@ -38,7 +38,7 @@ To create an account and configure your local environment:
 
 ### Starting the backend
 
-Once your backend is configured, you can start it by running `npm start` in the `services/roomService` directory (the first time you run it, you will also need to run `npm install`).
+Once your backend is configured, you can start it by running `npm start` in the `services/roomService` and `services/friendService` directories (the first time you run it, you will also need to run `npm install`).
 The backend will automatically restart if you change any of the files in the `services/roomService/src` directory.
 
 If you have not already, you must install NodeJS to run these commands. Follow the instructions in this guide: https://neu-se.github.io/CS4530-CS5500-Spring-2021/tutorials/week1-getting-started
