@@ -47,6 +47,7 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           appdir: services/roomService
+          procfile: "web: node services/roomService/build/server.js"
       
       - uses: akhileshns/heroku-deploy@v3.12.12 # Deploy to Heroku action
         with:
@@ -54,5 +55,5 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_FRIENDS_APP_NAME}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           appdir: services/friendService
-          
+          procfile: "web: node services/friendService/build/server.js"
           
