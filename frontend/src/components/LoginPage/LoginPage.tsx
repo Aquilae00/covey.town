@@ -37,7 +37,7 @@ export default function SimpleCard(): JSX.Element {
 
     // Do we trust the sender of this message? (might be
     // different from what we originally opened, for example).
-    if (event.origin !== 'http://localhost:3000') {
+    if (event.origin !== 'https://coveytown.netlify.app') {
       return;
     }
     const { data } = event;
@@ -157,7 +157,7 @@ export default function SimpleCard(): JSX.Element {
 
   const signInGoogleHandler = useCallback(() => {
     try {
-      openSignIn("http://localhost:3000/login");
+      openSignIn("https://coveytown.netlify.app/login");
     } catch (err) {
       toast({
         title: 'Create Account Error',
