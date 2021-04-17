@@ -85,7 +85,7 @@ export default function SimpleCard(): JSX.Element {
     assert(clientID);
     const oparams = {
       client_id: clientID,
-      redirect_uri: 'http://localhost:3000/redirect',
+      redirect_uri: 'https://coveytown.netlify.app/redirect',
       response_type: 'id_token token',
       nonce: '0394852-3190485-2490358',
       scope: 'openid profile email',
